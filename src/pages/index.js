@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ReactToPrint from "react-to-print"
 import Resume from "../components/Resume"
+import "../styles/index.css"
+
 const IndexPage = () => {
   const componentRef = useRef()
 
