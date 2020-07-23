@@ -10713,6 +10713,13 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
   integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
+react-to-print@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.9.0.tgz#98ab01df49208f35f2e2329a988b0cc11f72720d"
+  integrity sha512-5SwxY+Bg69cHmsIZQRwAUMBN4C5SxQ+IXBnmsU7YPfOpv32qYB6AocC0RXK4gOHO7pYj0NlM0z5ZFIHQ4cjlog==
+  dependencies:
+    prop-types "^15.7.2"
+
 react@^16.12.0, react@^16.8.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
