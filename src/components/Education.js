@@ -1,8 +1,8 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCalendar, faMapMarker } from "@fortawesome/free-solid-svg-icons"
+import { faCalendar } from "@fortawesome/free-solid-svg-icons"
 const Education = ({ edu }) => {
-  const { degree, major, college, from, to, result} = edu
+  const { degree, major, college, from, to, result } = edu
   return (
     <div className="mb-2">
       <h1 className=" text-l title-font font-medium text-gray-900">{degree} {major}</h1>
@@ -13,7 +13,6 @@ const Education = ({ edu }) => {
       <p className="text-sm text-gray-700 font-light">
          {result}
       </p>
-      
     </div>
   )
 }

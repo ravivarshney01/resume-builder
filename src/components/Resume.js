@@ -5,113 +5,9 @@ import Skills from "./Skills"
 import Project from "./Project"
 import Education from "./Education"
 import Extra from "./Extra"
+import DetailsContext from "../DetailsContext"
 
 class Resume extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      details: {
-        name: "John Doe",
-        twitter: "johnD",
-        linkedIn: "johnD",
-        github: "johnD",
-        email: "john@john.com",
-        mobile: "+1-12345-6622",
-      },
-      exp: [
-        {
-          role: "SDE",
-          company: "Facebook",
-          from: "July 19",
-          to: "Present",
-          location: "Remote",
-          points: [
-            "made awesome react",
-            "made redux ",
-            "working with react team",
-          ],
-        },
-        {
-          role: "SDE",
-          company: "Facebook",
-          from: "July 19",
-          to: "Present",
-          location: "Remote",
-          points: [
-            "made awesome react",
-            "made redux ",
-            "working with react team",
-          ],
-        },
-      ],
-      skills: [
-        "C",
-        "C++",
-        "Firebase",
-        "LaTeX",
-        "Visual Studio Code",
-        "Bootstrap",
-      ],
-      project: [
-        {
-          title: "My awesome Project",
-          date: "Jan 19 - Sep 19",
-          link: "https://github.com",
-          points: [
-            "this is awesome project, you can visit the above link to know more",
-            "my solo project",
-            "tech- react, gatsby",
-          ],
-        },
-        {
-          title: "My awesome Project",
-          date: "Jan 19 - Sep 19",
-          link: "",
-          points: [
-            "this is awesome project",
-            "my solo project",
-            "team-size: 4",
-            "tech- react, gatsby",
-          ],
-        },
-        {
-          title: "My awesome Project",
-          date: "Jan 19 - Sep 19",
-          link: "",
-          points: [
-            "this is awesome project",
-            "my solo project",
-            "tech- react, gatsby",
-          ],
-        },
-      ],
-      edu: [
-        {
-          degree: "B.Tech.",
-          major: "Information Technology",
-          college: "Indian Institute of Information Technology Vadodara",
-          from: "2017",
-          to: "2021(Expected)",
-          result: "CGPA: 9.88 / 10",
-        },
-        {
-          degree: "Intermediate +/2",
-          major: "",
-          college: "Ramesh Security Public School",
-          from: "2015",
-          to: "2017",
-          result: "Aggregate: 69%",
-        },
-      ],
-      extra: [
-        "Member of XYZ club",
-        "Winner of this game",
-        "Organized community events",
-        "Worked as volunteer in xyz",
-      ],
-    }
-  }
-
   render() {
     return (
       <div
@@ -121,48 +17,55 @@ class Resume extends Component {
           margin: 0,
         }}
       >
-        <PersonalDetails details={this.state.details} />
-        <div className="flex pt-6">
-          <div className="w-7/12">
-            {/* left side */}
-            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
-              EXPERIENCE
-            </h2>
-            {this.state.exp.map((ex, i) => (
-              <Experience ex={ex} key={i} />
-            ))}
-            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
-              PROJECTS
-            </h2>
-            {this.state.project.map((pro, i) => (
-              <Project pro={pro} key={i} />
-            ))}
-          </div>
-          <div className="w-1/12">{/* empty space */}</div>
-          <div className="w-4/12">
-            {/* right side */}
-            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
-              SKILLS
-            </h2>
-            {this.state.skills.map((sk, i) => (
-              <Skills skill={sk} key={i} />
-            ))}
-            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
-              EDUCATION
-            </h2>
-            {this.state.edu.map((ed, i) => (
-              <Education edu={ed} key={i} />
-            ))}
-            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
-              EXTRA CURRICULAR
-            </h2>
-            <ol className="list-inside list-disc text-gray-700">
-              {this.state.extra.map((extra, i) => (
-                <Extra extra={extra} key={i} />
-              ))}
-            </ol>
-          </div>
-        </div>
+        <DetailsContext.Consumer>
+          {({ details, exp, project, skills, edu, extra }) => (
+            <div>
+              {/* {console.log(details)} */}
+              <PersonalDetails details={details} />
+              <div className="flex pt-6">
+                <div className="w-7/12">
+                  {/* left side */}
+                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                    EXPERIENCE
+                  </h2>
+                  {exp.map((ex, i) => (
+                    <Experience ex={ex} key={i} />
+                  ))}
+                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                    PROJECTS
+                  </h2>
+                  {project.map((pro, i) => (
+                    <Project pro={pro} key={i} />
+                  ))}
+                </div>
+                <div className="w-1/12">{/* empty space */}</div>
+                <div className="w-4/12">
+                  {/* right side */}
+                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                    SKILLS
+                  </h2>
+                  {skills.map((sk, i) => (
+                    <Skills skill={sk} key={i} />
+                  ))}
+                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                    EDUCATION
+                  </h2>
+                  {edu.map((ed, i) => (
+                    <Education edu={ed} key={i} />
+                  ))}
+                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                    EXTRA CURRICULAR
+                  </h2>
+                  <ol className="list-inside list-disc text-gray-700">
+                    {extra.map((extra, i) => (
+                      <Extra extra={extra} key={i} />
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          )}
+        </DetailsContext.Consumer>
       </div>
     )
   }
