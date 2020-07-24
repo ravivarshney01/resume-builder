@@ -42,13 +42,13 @@ class Resume extends Component {
         },
       ],
       skills: [
-         "C",
-         "C++",
-         "Firebase",
-         "LaTeX",
-         "Visual Studio Code",
-         "Bootstrap"
-      ]
+        "C",
+        "C++",
+        "Firebase",
+        "LaTeX",
+        "Visual Studio Code",
+        "Bootstrap",
+      ],
     }
   }
 
@@ -75,7 +75,7 @@ class Resume extends Component {
           <div className="w-1/12">{/* empty space */}</div>
           <div className="w-4/12">
             {/* right side */}
-            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium">
+            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
               SKILLS
             </h2>
             {this.state.skills.map((sk, i) => (
