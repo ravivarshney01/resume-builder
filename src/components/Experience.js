@@ -9,12 +9,12 @@ const Experience = ({ ex }) => {
       <h1 className=" text-xl title-font font-medium text-blue-600">
         {company}
       </h1>
-      <p className="text-gray-700">
+      <p className="text-gray-700 font-light">
         <span className="pl-1 pr-24">
-          <FontAwesomeIcon icon={faCalendar} /> {from} - {to}
+          <FontAwesomeIcon className="mr-2" icon={faCalendar} /> {from} - {to}
         </span>
         <span className="">
-          <FontAwesomeIcon icon={faMapMarker} /> {location}
+          <FontAwesomeIcon className="mr-2" icon={faMapMarker} /> {location}
         </span>
       </p>
       <div className="text-gray-700 font-light">
