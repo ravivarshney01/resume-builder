@@ -8,3 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.pill {
+  
+  display: inline-block;
+  margin-right: 5px; 
+  margin-top: 2px;
+ 
+}
