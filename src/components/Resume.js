@@ -3,6 +3,7 @@ import PersonalDetails from "./PersonalDetails"
 import Experience from "./Experience"
 import Skills from "./Skills"
 import Project from "./Project"
+import Extra from "./Extra"
 
 class Resume extends Component {
   constructor(props) {
@@ -83,6 +84,12 @@ class Resume extends Component {
           ],
         },
       ],
+      extra: [
+        "Member of XYZ club",
+        "Winner of this game",
+        "Organized community events",
+        "Worked as volunteer in xyz",
+      ],
     }
   }
 
@@ -91,7 +98,7 @@ class Resume extends Component {
       <div
         style={{
           height: `297mm`,
-          padding: `10mm 16mm 27mm 10mm`,
+          padding: `10mm`,
           margin: 0,
         }}
       >
@@ -121,6 +128,14 @@ class Resume extends Component {
             {this.state.skills.map((sk, i) => (
               <Skills skill={sk} key={i} />
             ))}
+            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+              EXTRA CURRICULAR
+            </h2>
+            <ol className="list-inside list-disc text-gray-700">
+              {this.state.extra.map((extra, i) => (
+                <Extra extra={extra} key={i} />
+              ))}
+            </ol>
           </div>
         </div>
       </div>
