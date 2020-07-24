@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import PersonalDetails from "./PersonalDetails"
 import Experience from "./Experience"
 import Skills from "./Skills"
+import Project from "./Project"
 
 class Resume extends Component {
   constructor(props) {
@@ -49,6 +50,39 @@ class Resume extends Component {
         "Visual Studio Code",
         "Bootstrap",
       ],
+      project: [
+        {
+          title: "My awesome Project",
+          date: "Jan 19 - Sep 19",
+          link: "https://github.com",
+          points: [
+            "this is awesome project, you can visit the above link to know more",
+            "my solo project",
+            "tech- react, gatsby",
+          ],
+        },
+        {
+          title: "My awesome Project",
+          date: "Jan 19 - Sep 19",
+          link: "",
+          points: [
+            "this is awesome project",
+            "my solo project",
+            "team-size: 4",
+            "tech- react, gatsby",
+          ],
+        },
+        {
+          title: "My awesome Project",
+          date: "Jan 19 - Sep 19",
+          link: "",
+          points: [
+            "this is awesome project",
+            "my solo project",
+            "tech- react, gatsby",
+          ],
+        },
+      ],
     }
   }
 
@@ -70,6 +104,12 @@ class Resume extends Component {
             </h2>
             {this.state.exp.map((ex, i) => (
               <Experience ex={ex} key={i} />
+            ))}
+            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+              PROJECTS
+            </h2>
+            {this.state.project.map((pro, i) => (
+              <Project pro={pro} key={i} />
             ))}
           </div>
           <div className="w-1/12">{/* empty space */}</div>
