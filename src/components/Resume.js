@@ -3,6 +3,7 @@ import PersonalDetails from "./PersonalDetails"
 import Experience from "./Experience"
 import Skills from "./Skills"
 import Project from "./Project"
+import Education from "./Education"
 
 class Resume extends Component {
   constructor(props) {
@@ -83,6 +84,24 @@ class Resume extends Component {
           ],
         },
       ],
+      edu: [
+        {
+          degree: "B.Tech.",
+          major: "Information Technology",
+          college: "Indian Institute of Information Technology Vadodara",
+          from: "2017",
+          to: "2021(Expected)",
+          result: "CGPA: 9.88 / 10"
+        },
+        {
+          degree: "Intermediate +/2",
+          major: "",
+          college: "Ramesh Security Public School",
+          from: "2015",
+          to: "2017",
+          result: "Aggregate: 69%",
+        }
+      ],
     }
   }
 
@@ -120,6 +139,12 @@ class Resume extends Component {
             </h2>
             {this.state.skills.map((sk, i) => (
               <Skills skill={sk} key={i} />
+            ))}
+            <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+              EDUCATION
+            </h2>
+            {this.state.edu.map((ed, i) => (
+              <Education edu={ed} key={i} />
             ))}
           </div>
         </div>
