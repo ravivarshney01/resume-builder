@@ -102,6 +102,7 @@ const EditDetails = ({ values, setValues }) => {
     project[e.target.id[e.target.id.length - 1]][
       e.target.id.slice(0, e.target.id.length - 2)
     ] = e.target.value
+
     setValues({
       ...values,
       project: project,
@@ -115,7 +116,13 @@ const EditDetails = ({ values, setValues }) => {
     })
   }
 
-  const handleChangeProPoint = e => {}
+  const handleChangeProPoint = (e, i, ip) => {
+    project[i].points[ip] = e.target.value
+    setValues({
+      ...values,
+      project: project,
+    })
+  }
   const handleAddProPoint = i => {
     project[i].points.push("")
     setValues({
@@ -127,6 +134,7 @@ const EditDetails = ({ values, setValues }) => {
   const handleDeleteProPoint = (i, ip) => {
     project[i].points.splice(ip, 1)
     setValues({
+      ...values,
       project: project,
     })
   }
@@ -153,14 +161,18 @@ const EditDetails = ({ values, setValues }) => {
     })
   }
   const handleAddEdu = () => {
-    // edu.push({
-    //   degree: "B.Tech.",
-    //   major: "Information Technology",
-    //   college: "Indian Institute of Information Technology Vadodara",
-    //   from: "2017",
-    //   to: "2021(Expected)",
-    //   result: "CGPA: 9.88 / 10",
-    // })
+    edu.push({
+      degree: "B.Tech.",
+      major: "Information Technology",
+      college: "Indian Institute of Information Technology Vadodara",
+      from: "2017",
+      to: "2021(Expected)",
+      result: "CGPA: 9.88 / 10",
+    })
+    setValues({
+      ...values,
+      edu: edu,
+    })
   }
   const handleChangeEdu = e => {
     edu[e.target.id[e.target.id.length - 1]][
@@ -554,39 +566,39 @@ const EditDetails = ({ values, setValues }) => {
                   </h4>
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`role-${i}`}
+                    htmlFor={`title-${i}`}
                   >
                     Title
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`role-${i}`}
+                    id={`title-${i}`}
                     type="text"
                     value={pro.title}
                     onChange={handleChangePro}
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`company-${i}`}
+                    htmlFor={`date-${i}`}
                   >
                     Date
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`company-${i}`}
+                    id={`date-${i}`}
                     type="text"
                     value={pro.date}
                     onChange={handleChangePro}
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`from-${i}`}
+                    htmlFor={`link-${i}`}
                   >
                     Link
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`from-${i}`}
+                    id={`link-${i}`}
                     type="text"
                     value={pro.link}
                     onChange={handleChangePro}
@@ -596,7 +608,7 @@ const EditDetails = ({ values, setValues }) => {
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="button"
-                    onClick={e => handleAddProPoint(e, i)}
+                    onClick={e => handleAddProPoint(i)}
                   >
                     Add Point
                   </button>
@@ -605,7 +617,7 @@ const EditDetails = ({ values, setValues }) => {
                       <button
                         className=" w-1/12 float-right border-none"
                         type="button"
-                        onClick={e => handleDeleteProPoint(e, i, ip)}
+                        onClick={e => handleDeleteProPoint(i, ip)}
                       >
                         ❌
                       </button>
@@ -628,7 +640,7 @@ const EditDetails = ({ values, setValues }) => {
                 type="button"
                 onClick={handleAddSkills}
               >
-                Add Skills
+                Add Skill
               </button>
               {skills.map((sk, i) => (
                 <div className="flex-row" key={i}>
@@ -664,7 +676,7 @@ const EditDetails = ({ values, setValues }) => {
                     <button
                       className=" w-1/12 float-right border-none"
                       type="button"
-                      onClick={e => handleDeleteEdu(e, i)}
+                      onClick={e => handleDeleteEdu(i)}
                     >
                       ❌
                     </button>
@@ -684,65 +696,65 @@ const EditDetails = ({ values, setValues }) => {
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`degree-${i}`}
+                    htmlFor={`major-${i}`}
                   >
                     Major
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`degree-${i}`}
+                    id={`major-${i}`}
                     type="text"
                     value={ed.major}
                     onChange={handleChangeEdu}
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`degree-${i}`}
+                    htmlFor={`college-${i}`}
                   >
                     College
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`degree-${i}`}
+                    id={`college-${i}`}
                     type="text"
                     value={ed.college}
                     onChange={handleChangeEdu}
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`degree-${i}`}
+                    htmlFor={`from-${i}`}
                   >
                     From
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`degree-${i}`}
+                    id={`from-${i}`}
                     type="text"
                     value={ed.from}
                     onChange={handleChangeEdu}
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`degree-${i}`}
+                    htmlFor={`to-${i}`}
                   >
                     To
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`degree-${i}`}
+                    id={`to-${i}`}
                     type="text"
                     value={ed.to}
                     onChange={handleChangeEdu}
                   />
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                    htmlFor={`degree-${i}`}
+                    htmlFor={`result-${i}`}
                   >
                     Result
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                    id={`degree-${i}`}
+                    id={`result-${i}`}
                     type="text"
                     value={ed.result}
                     onChange={handleChangeEdu}
