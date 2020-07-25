@@ -1,11 +1,11 @@
 import React from "react"
 
-const Project = ({ pro }) => {
+const Project = ({ pro, theme }) => {
   const { title, date, points, link } = pro
   return (
     <div>
       <h1 className=" text-xl title-font font-medium text-gray-900">{title}</h1>
-      <h1 className=" text-l title-font font-medium text-blue-600">
+      <h1 className={`text-l title-font font-medium text-${theme}-600`}>
         {date}
         {link !== "" && (
           <a className="float-right" href={link} target="blank">

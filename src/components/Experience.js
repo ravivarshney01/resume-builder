@@ -1,12 +1,12 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCalendar, faMapMarker } from "@fortawesome/free-solid-svg-icons"
-const Experience = ({ ex }) => {
+const Experience = ({ ex, theme }) => {
   const { role, company, from, to, location, points } = ex
   return (
     <div className="">
       <h1 className=" text-xl title-font font-medium text-gray-900">{role}</h1>
-      <h1 className=" text-xl title-font font-medium text-blue-600">
+      <h1 className={`text-xl title-font font-medium text-${theme}-600`}>
         {company}
       </h1>
       <p className="text-gray-700 font-light">

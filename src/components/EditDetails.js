@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const EditDetails = ({ values, setValues }) => {
+const EditDetails = ({ values, setValues, theme }) => {
   const { details, exp, skills, project, edu, extra } = values
   const [openTab, setOpenTab] = useState(1)
 
@@ -190,7 +190,7 @@ const EditDetails = ({ values, setValues }) => {
       edu: edu,
     })
   }
-  const color = "teal"
+  const color = theme
   return (
     <div className="container">
       <ul
@@ -429,7 +429,7 @@ const EditDetails = ({ values, setValues }) => {
               {/* Experience */}
 
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                 type="button"
                 onClick={handleAddExp}
               >
@@ -514,7 +514,7 @@ const EditDetails = ({ values, setValues }) => {
                   />
                   <h4 className="text-base title-font font-medium">Points</h4>
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                     type="button"
                     onClick={e => handleAddPoint(e, i)}
                   >
@@ -546,7 +546,7 @@ const EditDetails = ({ values, setValues }) => {
               {/* Projects */}
 
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                 type="button"
                 onClick={handleAddPro}
               >
@@ -606,7 +606,7 @@ const EditDetails = ({ values, setValues }) => {
 
                   <h4 className="text-base title-font font-medium">Points</h4>
                   <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                     type="button"
                     onClick={e => handleAddProPoint(i)}
                   >
@@ -636,7 +636,7 @@ const EditDetails = ({ values, setValues }) => {
             <div className={openTab === 4 ? "block" : "hidden"} id="link3">
               {/* Skills */}
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                 type="button"
                 onClick={handleAddSkills}
               >
@@ -663,7 +663,7 @@ const EditDetails = ({ values, setValues }) => {
             <div className={openTab === 5 ? "block" : "hidden"} id="link3">
               {/* Education */}
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                 type="button"
                 onClick={handleAddEdu}
               >
@@ -765,7 +765,7 @@ const EditDetails = ({ values, setValues }) => {
             <div className={openTab === 6 ? "block" : "hidden"} id="link3">
               {/* Extra */}
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className={`bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold py-2 px-4 rounded focus:outline-none`}
                 type="button"
                 onClick={handleAddExtra}
               >

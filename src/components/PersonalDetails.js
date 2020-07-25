@@ -7,7 +7,7 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
 
-const PersonalDetails = ({ details }) => {
+const PersonalDetails = ({ details, theme }) => {
   const { email, mobile, twitter, name, linkedIn, github } = details
   return (
     <>
@@ -17,18 +17,19 @@ const PersonalDetails = ({ details }) => {
       <p>
         {email != "" && (
           <a className="text-xs pr-5" href={`mailto: ${email}`}>
-            <FontAwesomeIcon icon={faAt} className="text-blue-600" /> {email}
+            <FontAwesomeIcon icon={faAt} className={`text-${theme}-600`} />{" "}
+            {email}
           </a>
         )}
         {mobile != "" && (
           <span className="text-xs pr-5">
-            <FontAwesomeIcon icon={faPhone} className="text-blue-600" />{" "}
+            <FontAwesomeIcon icon={faPhone} className={`text-${theme}-600`} />{" "}
             {mobile}
           </span>
         )}
         {twitter != "" && (
           <a className="text-xs pr-5" href={`https://twitter.com/${twitter}`}>
-            <FontAwesomeIcon icon={faTwitter} className="text-blue-600" />{" "}
+            <FontAwesomeIcon icon={faTwitter} className={`text-${theme}-600`} />{" "}
             {twitter}
           </a>
         )}
@@ -37,13 +38,16 @@ const PersonalDetails = ({ details }) => {
             className="text-xs pr-5"
             href={`https://linked.com/in/${linkedIn}`}
           >
-            <FontAwesomeIcon icon={faLinkedin} className="text-blue-600" />{" "}
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              className={`text-${theme}-600`}
+            />{" "}
             {linkedIn}
           </a>
         )}
         {github != "" && (
           <a className="text-xs pr-5" href={`https://github.com/${github}`}>
-            <FontAwesomeIcon icon={faGithub} className="text-blue-600" />{" "}
+            <FontAwesomeIcon icon={faGithub} className={`text-${theme}-600`} />{" "}
             {github}
           </a>
         )}
