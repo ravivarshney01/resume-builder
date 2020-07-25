@@ -5,10 +5,14 @@ import SEO from "../components/seo"
 import ReactToPrint from "react-to-print"
 import Resume from "../components/Resume"
 import "../styles/index.css"
+import Modal from "react-modal"
+import EditDetails from "../components/EditDetails"
+
+Modal.setAppElement("#___gatsby")
 
 const IndexPage = () => {
   const componentRef = useRef()
-  const [valuesHook] = useState({
+  const [valuesHook, setValuesHook] = useState({
     details: {
       name: "John Doe",
       twitter: "johnD",
@@ -109,12 +113,26 @@ const IndexPage = () => {
       "Worked as volunteer in xyz",
     ],
   })
+
+  const [showModal, setShowModal] = useState(false)
+
+  const toggleModal = () => setShowModal(!showModal)
   return (
     <DetailsContext.Provider value={valuesHook}>
       <Layout>
         <SEO title="Home" />
+        <button
+          onClick={toggleModal}
+          className="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded"
+        >
+          Edit
+        </button>
         <ReactToPrint
-          trigger={() => <button>Print this out!</button>}
+          trigger={() => (
+            <button className="bg-teal-600 hover:bg-teal-800 py-2 px-4 text-white rounded float-right">
+              Print this out!
+            </button>
+          )}
           content={() => componentRef.current}
         />
         <div
@@ -124,6 +142,17 @@ const IndexPage = () => {
         >
           <Resume ref={componentRef} />
         </div>
+        {showModal ? (
+          <Modal isOpen={showModal}>
+            <button
+              className="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded"
+              onClick={toggleModal}
+            >
+              Close
+            </button>
+            <EditDetails setValues={setValuesHook} values={valuesHook} />
+          </Modal>
+        ) : null}
       </Layout>
     </DetailsContext.Provider>
   )
