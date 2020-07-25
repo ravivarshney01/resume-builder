@@ -127,14 +127,14 @@ const IndexPage = () => {
             <div>
               <button
                 onClick={toggleModal}
-                className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded focus:outline-none`}
+                className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded focus:outline-none mb-2`}
               >
                 Edit
               </button>
               <ReactToPrint
                 trigger={() => (
                   <button
-                    className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded float-right focus:outline-none`}
+                    className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded float-right focus:outline-none mb-2`}
                   >
                     Print this out!
                   </button>
@@ -143,7 +143,7 @@ const IndexPage = () => {
               />
               <div
                 style={{
-                  border: `black solid`,
+                  border: `${theme} solid`,
                 }}
               >
                 <Resume ref={componentRef} theme={theme} />

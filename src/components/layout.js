@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  const themeHook = useState("red")
+  const themeHook = useState("teal")
   return (
     <>
       <ThemeContext.Provider value={themeHook}>

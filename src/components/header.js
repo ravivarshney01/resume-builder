@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => {
       {([k]) => {
         return (
           <nav
-            className={`flex items-center justify-between flex-wrap bg-${k}-500 p-6`}
+            className={`flex items-center justify-between flex-wrap bg-${k}-500 p-6 mb-2`}
           >
             <Link to="/" className="text-white text-3xl">
               {siteTitle}
