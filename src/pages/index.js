@@ -8,6 +8,8 @@ import "../styles/index.css"
 import Modal from "react-modal"
 import EditDetails from "../components/EditDetails"
 
+Modal.setAppElement("#___gatsby")
+
 const IndexPage = () => {
   const componentRef = useRef()
   const [valuesHook, setValuesHook] = useState({
@@ -121,12 +123,16 @@ const IndexPage = () => {
         <SEO title="Home" />
         <button
           onClick={toggleModal}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded"
         >
           Edit
         </button>
         <ReactToPrint
-          trigger={() => <button>Print this out!</button>}
+          trigger={() => (
+            <button className="bg-teal-600 hover:bg-teal-800 py-2 px-4 text-white rounded float-right">
+              Print this out!
+            </button>
+          )}
           content={() => componentRef.current}
         />
         <div
@@ -139,7 +145,7 @@ const IndexPage = () => {
         {showModal ? (
           <Modal isOpen={showModal}>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-teal-600 hover:bg-teal-800 text-white font-bold py-2 px-4 rounded"
               onClick={toggleModal}
             >
               Close

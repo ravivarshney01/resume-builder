@@ -12,7 +12,6 @@ class Resume extends Component {
     return (
       <div
         style={{
-          height: `297mm`,
           padding: `10mm`,
           margin: 0,
         }}
