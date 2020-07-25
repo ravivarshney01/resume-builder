@@ -5,10 +5,15 @@ import SEO from "../components/seo"
 import ReactToPrint from "react-to-print"
 import Resume from "../components/Resume"
 import "../styles/index.css"
+import Modal from "react-modal"
+import EditDetails from "../components/EditDetails"
+import ThemeContext from "../ThemeContext"
+
+Modal.setAppElement("#___gatsby")
 
 const IndexPage = () => {
   const componentRef = useRef()
-  const [valuesHook] = useState({
+  const [valuesHook, setValuesHook] = useState({
     details: {
       name: "John Doe",
       twitter: "johnD",
@@ -109,21 +114,58 @@ const IndexPage = () => {
       "Worked as volunteer in xyz",
     ],
   })
+
+  const [showModal, setShowModal] = useState(false)
+
+  const toggleModal = () => setShowModal(!showModal)
   return (
     <DetailsContext.Provider value={valuesHook}>
       <Layout>
         <SEO title="Home" />
-        <ReactToPrint
-          trigger={() => <button>Print this out!</button>}
-          content={() => componentRef.current}
-        />
-        <div
-          style={{
-            border: `black solid`,
-          }}
-        >
-          <Resume ref={componentRef} />
-        </div>
+        <ThemeContext.Consumer>
+          {([theme]) => (
+            <div>
+              <button
+                onClick={toggleModal}
+                className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded focus:outline-none`}
+              >
+                Edit
+              </button>
+              <ReactToPrint
+                trigger={() => (
+                  <button
+                    className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded float-right focus:outline-none`}
+                  >
+                    Print this out!
+                  </button>
+                )}
+                content={() => componentRef.current}
+              />
+              <div
+                style={{
+                  border: `black solid`,
+                }}
+              >
+                <Resume ref={componentRef} theme={theme} />
+              </div>
+              {showModal ? (
+                <Modal isOpen={showModal}>
+                  <button
+                    className={`bg-${theme}-500 hover:bg-${theme}-800 text-white font-bold py-2 px-4 rounded focus:outline-none`}
+                    onClick={toggleModal}
+                  >
+                    Close
+                  </button>
+                  <EditDetails
+                    setValues={setValuesHook}
+                    values={valuesHook}
+                    theme={theme}
+                  />
+                </Modal>
+              ) : null}
+            </div>
+          )}
+        </ThemeContext.Consumer>
       </Layout>
     </DetailsContext.Provider>
   )

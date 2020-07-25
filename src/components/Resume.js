@@ -9,10 +9,10 @@ import DetailsContext from "../DetailsContext"
 
 class Resume extends Component {
   render() {
+    const { theme } = this.props
     return (
       <div
         style={{
-          height: `297mm`,
           padding: `10mm`,
           margin: 0,
         }}
@@ -21,44 +21,54 @@ class Resume extends Component {
           {({ details, exp, project, skills, edu, extra }) => (
             <div>
               {/* {console.log(details)} */}
-              <PersonalDetails details={details} />
+              <PersonalDetails details={details} theme={theme} />
               <div className="flex pt-6">
                 <div className="w-7/12">
                   {/* left side */}
-                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                  <h2
+                    className={`w-full text-2xl text-${theme}-600 border-b-2 border-${theme}-600 font-medium mb-3`}
+                  >
                     EXPERIENCE
                   </h2>
                   {exp.map((ex, i) => (
-                    <Experience ex={ex} key={i} />
+                    <Experience ex={ex} key={i} theme={theme} />
                   ))}
-                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                  <h2
+                    className={`w-full text-2xl text-${theme}-600 border-b-2 border-${theme}-600 font-medium mb-3`}
+                  >
                     PROJECTS
                   </h2>
                   {project.map((pro, i) => (
-                    <Project pro={pro} key={i} />
+                    <Project pro={pro} key={i} theme={theme} />
                   ))}
                 </div>
                 <div className="w-1/12">{/* empty space */}</div>
                 <div className="w-4/12">
                   {/* right side */}
-                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                  <h2
+                    className={`w-full text-2xl text-${theme}-600 border-b-2 border-${theme}-600 font-medium mb-3`}
+                  >
                     SKILLS
                   </h2>
                   {skills.map((sk, i) => (
-                    <Skills skill={sk} key={i} />
+                    <Skills skill={sk} key={i} theme={theme} />
                   ))}
-                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                  <h2
+                    className={`w-full text-2xl text-${theme}-600 border-b-2 border-${theme}-600 font-medium mb-3`}
+                  >
                     EDUCATION
                   </h2>
                   {edu.map((ed, i) => (
-                    <Education edu={ed} key={i} />
+                    <Education edu={ed} key={i} theme={theme} />
                   ))}
-                  <h2 className="w-full text-2xl text-blue-600 border-b-2 border-blue-600 font-medium mb-3">
+                  <h2
+                    className={`w-full text-2xl text-${theme}-600 border-b-2 border-${theme}-600 font-medium mb-3`}
+                  >
                     EXTRA CURRICULAR
                   </h2>
                   <ol className="list-inside list-disc text-gray-700">
                     {extra.map((extra, i) => (
-                      <Extra extra={extra} key={i} />
+                      <Extra extra={extra} key={i} theme={theme} />
                     ))}
                   </ol>
                 </div>
