@@ -559,7 +559,7 @@ const EditDetails = ({ values, setValues, theme }) => {
                     <button
                       className=" w-1/12 float-right border-none"
                       type="button"
-                      onClick={e => handleDeletePro(e, i)}
+                      onClick={e => handleDeletePro(i)}
                     >
                       ❌
                     </button>
